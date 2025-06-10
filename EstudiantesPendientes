@@ -1,0 +1,34 @@
+from Conexion import obtener_conexion
+
+#Hacer la conexión a la base de datos
+conexion = obtener_conexion()
+cursor = conexion.cursor()
+
+def ver_estudiantes_con_saldo_pendiente():
+    # Ejecutar consulta sobre la vista v_estudiantes_pendientes
+    cursor.execute("SELECT * FROM v_estudiantes_pendientes WHERE mesesPendientes > 0")
+    
+    # Verificar si hay resultados
+    if cursor.rowcount == 0:
+        print("\nNo hay estudiantes con saldo pendiente.")
+        return
+    
+    # Obtener los resultados de la consulta
+    resultados = cursor.fetchall()
+    
+    # Mostrar encabezado de la tabla
+    print("\n\t\t\t\t\t--- HISTORIAL DE PAGOS ---")
+    print(f"{'Carnet':<7} {'Nombre':<20} {'Apellido':<20} {'Correo':<40} {'Meses Pagados':<15} {'Meses Pendientes':<17}")
+    print("-" * 120)
+
+    for fila in resultados:
+        id_est, nombre, apellido, correo, mesesPagados, mesesPendientes = fila
+        print(f"{id_est:<7} {nombre:<20} {apellido:<20} {correo:<40} {mesesPagados:<15} {mesesPendientes:<17}")
+        
+    cursor.close()
+    conexion.close()
+
+# Ejecutar función
+ver_estudiantes_con_saldo_pendiente()
+
+    
