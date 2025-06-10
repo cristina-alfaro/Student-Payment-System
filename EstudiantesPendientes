@@ -1,13 +1,14 @@
+import pyodbc
 from Conexion import obtener_conexion
 
-#Hacer la conexión a la base de datos
+# Este bloque importa la conexión y el cursor desde Conexionsql.py
 conexion = obtener_conexion()
 cursor = conexion.cursor()
 
 def ver_estudiantes_con_saldo_pendiente():
     # Ejecutar consulta sobre la vista v_estudiantes_pendientes
     cursor.execute("SELECT * FROM v_estudiantes_pendientes WHERE mesesPendientes > 0")
-    
+
     # Verificar si hay resultados
     if cursor.rowcount == 0:
         print("\nNo hay estudiantes con saldo pendiente.")
@@ -17,16 +18,14 @@ def ver_estudiantes_con_saldo_pendiente():
     resultados = cursor.fetchall()
     
     # Mostrar encabezado de la tabla
-    print("\n\t\t\t\t--- ALUMNOS CON PAGOS PENDIENTES ---")
-    print(f"{'Carnet':<7} {'Nombre':<20} {'Apellido':<20} {'Correo':<40} {'Meses Pagados':<15} {'Meses Pendientes':<17}")
-    print("-" * 120)
+    print("\n\t\t\t\t\t\t--- ALUMNOS CON PAGOS PENDIENTES ---")
+    print(f"{'Carnet':<7} {'Nombre':<20} {'Apellido':<20} {'Correo':<30} {'ID Talonario':<15} {'Meses Pagados':<15} {'Meses Pendientes':<17}")
+    print("-" * 140)
 
     for fila in resultados:
-        id_est, nombre, apellido, correo, mesesPagados, mesesPendientes = fila
-        print(f"{id_est:<7} {nombre:<20} {apellido:<20} {correo:<40} {mesesPagados:<15} {mesesPendientes:<17}")
+        id_est, nombre, apellido, correo, talonario, mesesPagados, mesesPendientes = fila
+        print(f"{id_est:<7} {nombre:<20} {apellido:<20} {correo:<30} {talonario:<15} {mesesPagados:<15} {mesesPendientes:<17}")
         
-    cursor.close()
-    conexion.close()
 
 # Ejecutar función
 ver_estudiantes_con_saldo_pendiente()

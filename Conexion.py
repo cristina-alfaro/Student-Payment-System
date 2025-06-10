@@ -4,7 +4,7 @@ def obtener_conexion():
     # Esta es una variable que guarda los datos de la conexión del servidor SQL
     # Asegúrate de que el servidor y la base de datos sean correctos
     server = 'DESKTOP-BFC4931'
-    database = 'SistemaPagos'
+    database = 'BD_proyecto_control_pagos_colegiatura'
 
     # Conexión al servidor SQL usando autenticación de Windows
     conexion = pyodbc.connect(
