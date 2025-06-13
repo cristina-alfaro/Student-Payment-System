@@ -1,0 +1,16 @@
+====== FACTURA DE PAGO ======
+Fecha de emisión: 2025-06-10
+
+Nombre del estudiante: Alison Michelle Molina Garcia
+ID Talonario: 893
+Fecha de último pago registrado: 2025-04-05
+Estado de colegiatura: Pagado
+Tipo de cuota: Plazo Largo
+Precio base: $35.00
+Mora aplicada: 10%
+Total a pagar: $38.50
+Efectivo recibido: $50.00
+Vuelto: $15.00
+
+Gracias por su pago.
+=============================

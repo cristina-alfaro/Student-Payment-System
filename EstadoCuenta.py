@@ -1,11 +1,11 @@
 import pyodbc
 from Conexion import obtener_conexion
 
-#Hacer la conexión a la base de datos
-conexion = obtener_conexion()
-cursor = conexion.cursor()
-
 def estado_cuenta(id_estudiante):
+    # Este bloque importa la conexión y el cursor desde conexion.py
+    conexion = obtener_conexion()
+    cursor = conexion.cursor()
+    
     try: 
         # Ejecutar consulta sobre el procedimiento almacenado sp_historial_pago
         cursor.execute("EXEC sp_estado_cuenta ?", id_estudiante)
@@ -13,12 +13,14 @@ def estado_cuenta(id_estudiante):
         # Obtener los resultados de la consulta
         resultados = cursor.fetchall()
     
+    # Bloque para manejar errores
+    # Aquí se captura cualquier error con la base de datos
     except pyodbc.Error as ex:
-        print(f"Ocurrió un error al ver el historial de pagos: {ex}")
+        print(f"Ocurrió un error al ver el estado de cuenta: {ex}")
     
     # Si no se encontraron resultados, mostrar mensaje
     if not resultados:
-        print("No se encontraron pagos para el estudiante con ID:", buscar_cuenta_estudiante)
+        print("No se encontraron pagos para el estudiante con ID:", id_estudiante)
         
     # Mostrar encabezado de la tabla
     else:
@@ -29,13 +31,3 @@ def estado_cuenta(id_estudiante):
         for fila in resultados:
             id_est, nombre, apellido, correo, talonario, cuota, mesesPendientes, montoTotal, ultimoMes = fila
             print(f"{id_est:<7} {nombre:<20} {apellido:<20} {correo:<30} {talonario:<15} {float(cuota):<10.2f} {mesesPendientes:<17} {float(montoTotal):<17.2f} {ultimoMes.strftime('%Y-%m-%d'):<15}")
-
-
-# Ejecutar función
-buscar_cuenta_estudiante = int(input("\nIngrese el ID del estudiante para ver su estado de cuenta: "))
-
-if buscar_cuenta_estudiante <= 0:
-    print("El ID del estudiante debe ser un número positivo.")
-    
-else:
-    estado_cuenta(buscar_cuenta_estudiante)

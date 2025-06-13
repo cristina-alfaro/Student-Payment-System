@@ -1,0 +1,16 @@
+====== FACTURA DE PAGO ======
+Fecha de emisión: 2025-06-10
+
+Nombre del estudiante: Carlos Alberto Hernandez Guardado
+ID Talonario: 124
+Fecha de último pago registrado: 2025-05-10
+Estado de colegiatura: Pagado
+Tipo de cuota: Plazo Corto
+Precio base: $42.78
+Mora aplicada: 0%
+Total a pagar: $42.78
+Efectivo recibido: $50.00
+Vuelto: $7.22
+
+Gracias por su pago.
+=============================
