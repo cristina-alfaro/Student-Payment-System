@@ -8,7 +8,7 @@ def estado_cuenta(id_estudiante):
     
     try: 
         # Ejecutar consulta sobre el procedimiento almacenado sp_historial_pago
-        cursor.execute("EXEC sp_estado_cuenta ?", id_estudiante)
+        cursor.execute("EXEC spu_estado_cuenta ?", id_estudiante)
         
         # Obtener los resultados de la consulta
         resultados = cursor.fetchall()
@@ -26,7 +26,7 @@ def estado_cuenta(id_estudiante):
     else:
         print("\n\t\t\t\t\t\t\t\t\t--- ESTADO DE CUENTA ---")
         print(f"{'Carnet':<7} {'Nombre':<20} {'Apellido':<20} {'Correo':<30} {'ID Talonario':<15} {'Cuota':<10} {'Meses Pendientes':<17}  {'Monto Pendiente':<17}  {'Ultimo mes pagado':<15} ")
-        print("-" * 180)
+        print("-" * 160)
 
         for fila in resultados:
             id_est, nombre, apellido, correo, talonario, cuota, mesesPendientes, montoTotal, ultimoMes = fila

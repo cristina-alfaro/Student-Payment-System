@@ -1,0 +1,16 @@
+====== FACTURA DE PAGO ======
+Fecha de emisión: 2025-06-12
+
+Nombre del estudiante: Luis Alonso Hernandez Mundo
+ID Talonario: 913
+Fecha de último pago registrado: 2025-04-10
+Estado de colegiatura: pagado
+Tipo de cuota: Plazo Largo
+Precio base: $35.00
+Mora aplicada: 10%
+Total a pagar: $38.50
+Efectivo recibido: $100.00
+Vuelto: $65.00
+
+Gracias por su pago.
+=============================

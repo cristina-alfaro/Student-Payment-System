@@ -1,6 +1,6 @@
 import RegistroEstudiante  # Importa la función registrar_estudiante
-import RegistroPagos   # Importa la función registrar_pago
-import Pendientes  # Importa la función estudiantes_pendientes
+import RegistroPagos 
+import Pendientes # Importa la función estudiantes_pendientes
 import HistorialPago       # Importa la función historial_pago
 import EstadoCuenta        # Importa la función estado_cuenta
 
