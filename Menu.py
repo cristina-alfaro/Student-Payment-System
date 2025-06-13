@@ -1,8 +1,8 @@
 import RegistroEstudiante  # Importa la función registrar_estudiante
-import RegistroPagos 
+import RegistroPagos # Importa la función registrar_pago
 import Pendientes # Importa la función estudiantes_pendientes
-import HistorialPago       # Importa la función historial_pago
-import EstadoCuenta        # Importa la función estado_cuenta
+import HistorialPago # Importa la función historial_pago
+import EstadoCuenta # Importa la función estado_cuenta
 
 def mostrar_menu():
     while True:
